@@ -35,16 +35,11 @@ void inputMatrix(double A [][N])
 void findLocalMax(const double A[][N], bool B[][N])
 {
 
-	for (int i = 0; i > N; i++)
+	for (int i = 0; i < N; i++)
 	{
 		for(int j = 0; j < N; j++)
 		{
-			if(i == 0 || i == N-1)
-			{
-				B[i][j] = 0;
-			}
-
-			else if(j == 0 || j == N-1)
+			if(i == 0 || i == N-1 || j == 0 || j == N-1)
 			{
 				B[i][j] = 0;
 			}
@@ -61,7 +56,7 @@ void findLocalMax(const double A[][N], bool B[][N])
 			}
 			
 			int fogus = A[a][b];
-			bool max = true, up,down,left,right,Result;
+			bool up,down,left,right,Result;
 
 			up = (A[a][b] > A[a-1][b]);
 			down = (A[a][b] > A[a+1][b]);
@@ -71,7 +66,6 @@ void findLocalMax(const double A[][N], bool B[][N])
 
 			if(Result) B[a][b] = 1;
 			else B[a][b] = 0;
-
 
 		} 
 	}

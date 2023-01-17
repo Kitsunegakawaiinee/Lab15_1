@@ -55,13 +55,12 @@ void findLocalMax(const double A[][N], bool B[][N])
 				continue;
 			}
 			
-			int fogus = A[a][b];
 			bool up,down,left,right,Result;
 
-			up = (A[a][b] > A[a-1][b]);
-			down = (A[a][b] > A[a+1][b]);
-			left = (A[a][b] > A[a][b-1]);
-			right = (A[a][b] > A[a][b+1]);
+			up = (A[a][b] >= A[a-1][b]);
+			down = (A[a][b] >= A[a+1][b]);
+			left = (A[a][b] >= A[a][b-1]);
+			right = (A[a][b] >= A[a][b+1]);
 			Result = up && down && left && right;
 
 			if(Result) B[a][b] = 1;
